@@ -1,0 +1,48 @@
+Task 1 --- AVRO imports
+
+*Cloudera Folks*
+
+cd
+mysql -uroot -pcloudera
+create database add1;
+use add1;
+create table ttab2(id int,name varchar(100),amount int);
+insert into ttab2 values(1,'zeyo',40);
+insert into ttab2 values(2,'vasu',50);
+insert into ttab2 values(3,'rani',70);
+select * from ttab2;
+quit
+
+sqoop import --connect jdbc:mysql://localhost/add1 --username root --password cloudera --table ttab2 --m 1 --delete-target-dir --target-dir /user/cloudera/adata --as-avrodatafile
+
+hadoop fs -ls /user/cloudera/adata
+hadoop fs -cat /user/cloudera/adata/*
+
+
+
+*Lab Folks*
+
+
+mysql --host=zeyod2.czgbk94pezaa.ap-south-1.rds.amazonaws.com --user=root --password=Aditya908
+create database <LABUSER>;
+use <LABUSER>;
+create table ttab2(id int,name varchar(100),amount int);
+insert into ttab2 values(1,'zeyo',40);
+insert into ttab2 values(2,'vasu',50);
+insert into ttab2 values(3,'rani',70);
+select * from ttab2;
+quit
+
+sqoop import  -Dmapreduce.job.user.classpath.first=true --connect jdbc:mysql://zeyod2.czgbk94pezaa.ap-south-1.rds.amazonaws.com/<LABUSER> --username root --password Aditya908 --table ttab --m 1 --delete-target-dir --target-dir /user/<LABUSER>/adata --as-avrodatafile
+
+
+hadoop fs -ls /user/<LABUSER>/adata
+hadoop fs -cat /user/<LABUSER>/adata/*
+
+
+
+
+Task 2 --- Take Notes or In paint
+
+Put in paint or Nodes  (Compression and Notes)
+
