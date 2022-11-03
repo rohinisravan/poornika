@@ -1,0 +1,11 @@
+
+
+public class additionprogramtest{
+     public int num1=65;
+     public int num2=25;
+public void int Add()
+ {
+int num3 = num1+num2;
+return num3
+}
+}
